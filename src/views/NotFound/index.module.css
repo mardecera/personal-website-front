@@ -1,4 +1,41 @@
-.notFound {
-  background-color: black;
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .contain {
+  width: 50%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  text-align: center;
+  color: #455A64;
+}
+
+@media (max-width: 425px) {
+  .container .contain {
+    width: 90%;
+  }
+}
+
+.container .contain .goToHome {
+  width: max-content;
+  background-color: #ff725e;
+  padding: 1em 2em;
+  border-radius: 3rem;
   color: white;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.container .contain .goToHome:hover {
+  background-color: white;
+  color: #FF725E;
+  box-shadow: inset 5px 5px 20px rgba(117, 117, 117, 0.5);
 }

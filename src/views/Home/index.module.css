@@ -1,0 +1,87 @@
+.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 9em;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  font-family: 'Poppins';
+  box-shadow: 5px 0px 20px #a8a8a8;
+}
+
+.navbar .navbarLogo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  color: #455a64;
+}
+
+.navbar .navbarLogo .logo {
+  width: 1rem !important;
+}
+
+.navbar .navbarButtons .navbarButtonsList {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar .navbarButtons .navbarButtonsList a {
+  color: #455a64;
+}
+
+.navbar .navbarContactme button {
+  font-size: 14px;
+  padding: 1em 2em;
+  border-radius: 2rem;
+  border: none;
+  outline: #ff725e;
+  color: #ff725e;
+  box-shadow: inset 5px 5px 20px rgba(136, 136, 136, 0.479);
+}
+
+.navbar .navbarContactme button:hover {
+  background-color: #ff725e;
+  color: white;
+}
+
+.home {
+  height: 100vh;
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+}
+
+.home .homeContainer {
+  margin: 0 auto;
+  max-width: 2500px;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.home .homeContainer .homeInfo {
+  width: 45%;
+  margin-top: 7em;
+}
+
+.home .homeContainer .homeInfo .homeInfoName {
+  font-size: 7rem;
+}
+
+.home .homeContainer .homeInfo .homeInfoJob {
+  font-size: 1.2rem;
+}
+
+.home .homeContainer .homePicture {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  margin-top: 7em;
+}
+
+.home .homeContainer .homePicture figure {
+  width: 80%;
+}
