@@ -1,3 +1,60 @@
 .footer {
   background-color: white;
+  padding: 2rem 15rem;
+}
+
+.footer .footerContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer .footerContainer .copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer .footerContainer .copy .logo {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.footer .footerContainer .copy .logo figure {
+  width: 1.2rem;
+}
+
+.footer .footerContainer .copy span {
+  display: flex;
+  font-size: .8rem;
+}
+
+.footer .footerContainer .redes {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer .footerContainer .redes span {
+  font-size: .8rem;
+}
+
+.footer .footerContainer .redes ul {
+  display: flex;
+  list-style: none;
+  gap: .5rem;
+}
+
+.footer .footerContainer .redes ul li {
+  background-color: #0e263b;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .footerContainer .redes ul li img {
+  width: 60%;
 }

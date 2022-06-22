@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 
 .container .contain {
@@ -15,7 +16,11 @@
   gap: 2rem;
   justify-content: center;
   text-align: center;
-  color: #455a64;
+  color: #32325d;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  padding: 2rem;
+  border-radius: .5rem;
 }
 
 @media (max-width: 425px) {

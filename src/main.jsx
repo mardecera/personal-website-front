@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" status={404} element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
