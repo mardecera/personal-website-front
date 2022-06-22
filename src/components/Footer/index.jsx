@@ -1,8 +1,5 @@
 import styles from './index.module.css'
 import logo from '/images/logo.svg'
-import twitter from '/images/twitter.svg'
-import github from '/images/github.svg'
-import instagram from '/images/instagram.svg'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
@@ -21,13 +18,13 @@ const Footer = () => {
                     <span>FollowMe on:</span>
                     <ul>
                         <li>
-                            <img src={twitter} alt="twitter" />
+                            <span className='icon-twitter'></span>
                         </li>
                         <li>
-                            <img src={github} alt="github" />
+                            <span className='icon-github'></span>
                         </li>
                         <li>
-                            <img src={instagram} alt="instagram" />
+                            <span className='icon-instagram'></span>
                         </li>
                     </ul>
                 </div>
