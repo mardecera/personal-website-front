@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
+import Footer from '../../components/Footer'
 import styles from './index.module.css'
 import logo from '/images/logo.svg'
 import astros from '/images/astros.svg'
@@ -52,10 +53,12 @@ const Home = () => {
             <div className={styles.home} id="home">
                 <div className={styles.homeContainer}>
                     <div className={styles.homeInfo}>
-                        <div className={styles.homeInfoTitle}>Hi! My names is</div>
-                        <div className={styles.homeInfoName}>Jonathan Alarcon</div>
-                        <div className={styles.homeInfoJob}>
-                            {'<Junior frontend developer/>'}
+                        <div className={styles.homeInfoContainer}>
+                            <div className={styles.homeInfoTitle}>Hi! I'm</div>
+                            <div className={styles.homeInfoName}><p>Jonathan</p><p>Alarcón</p></div>
+                            {/* <div className={styles.homeInfoJob}>
+                                {'<Junior frontend developer/>'}
+                            </div> */}
                         </div>
                     </div>
                     <div className={styles.homePicture}>
@@ -66,51 +69,53 @@ const Home = () => {
                 </div>
             </div>
             <div className={styles.about} id="about">
-                <div className={styles.aboutImage}>
-                    <figure>
-                        <img src={photo} alt="me" />
-                    </figure>
-                </div>
-                <div className={styles.aboutInfo}>
-                    <div className={styles.aboutTitle}>About me</div>
-                    <div className={styles.aboutSubTitle}>
-                        <p>Soy alguien entusiasta por las programación web</p>
+                <div className={styles.aboutContainer}>
+                    <div className={styles.aboutImage}>
+                        <figure>
+                            <img src={photo} alt="me" />
+                        </figure>
                     </div>
-                    <div className={styles.aboutDescription}>
-                        <p>
-                            I’m an enthusiastic person to learn new ways of
-                            programming, proactive and energetic. I've developed
-                            some web pages from scratch using only css, html and
-                            js, without frameworks; but, React.js is really
-                            getting me excited.
-                        </p>
-                    </div>
-                    <div className={styles.aboutFollowMe}>
-                        <div className={styles.aboutFollowMeContain}>
-                            <span>Follow me: </span>
-                            <span>
-                                <ul>
-                                    <li>
-                                        <img src={twitter} alt="twitter" />
-                                    </li>
-                                    <li>
-                                        <img src={github} alt="twitter" />
-                                    </li>
-                                    <li>
-                                        <img src={instagram} alt="twitter" />
-                                    </li>
-                                </ul>
-                            </span>
+                    <div className={styles.aboutInfo}>
+                        <div className={styles.aboutTitle}>About me</div>
+                        <div className={styles.aboutSubTitle}>
+                            <p>Soy alguien entusiasta por las programación web</p>
                         </div>
-                    </div>
-                    <div className="aboutDownloadCV">
-                        <button>Download CV</button>
+                        <div className={styles.aboutDescription}>
+                            <p>
+                                I’m an enthusiastic person to learn new ways of
+                                programming, proactive and energetic. I've developed
+                                some web pages from scratch using only css, html and
+                                js, without frameworks; but, React.js is really
+                                getting me excited.
+                            </p>
+                        </div>
+                        <div className={styles.aboutFollowMe}>
+                            <div className={styles.aboutFollowMeContain}>
+                                <span>Follow me: </span>
+                                <span>
+                                    <ul>
+                                        <li>
+                                            <img src={twitter} alt="twitter" />
+                                        </li>
+                                        <li>
+                                            <img src={github} alt="github" />
+                                        </li>
+                                        <li>
+                                            <img src={instagram} alt="instagram" />
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                        <div className={styles.aboutDownloadCV}>
+                            <button>Download CV</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className={styles.hobbies} id="hobbies">
                 <div className={styles.hobbiesContainer}>
-                    <div className={styles.hobbiesTitles}>Hobbies</div>
+                    <div className={styles.hobbiesTitle}>Hobbies</div>
                     <div className={styles.hobbiesSubTitle}>
                         Los hobbies son esenciales para un equilibrio
                     </div>
@@ -120,7 +125,7 @@ const Home = () => {
                                 <li>
                                     <div className={styles.hobbiesListItem}>
                                         <div className={styles.itemTitle}>
-                                            Photografy
+                                            Photography
                                         </div>
                                         <div
                                             className={styles.itemDescription}
@@ -164,7 +169,7 @@ const Home = () => {
             </div>
             <div className={styles.skills} id="skills">
                 <div className={styles.skillsContainer}>
-                    <div className={styles.skillsTitles}>Skills</div>
+                    <div className={styles.skillsTitle}>Skills</div>
                     <div className={styles.skillsSubTitle}>
                         Las skills se desarrollan y mejoran continuamente
                     </div>
@@ -251,15 +256,28 @@ const Home = () => {
             </div>
             <div className={styles.projects} id="projects">
                 <div className={styles.projectsContainer}>
-                    <div className={styles.projectsTitles}>Projects</div>
+                    <div className={styles.projectsTitle}>Projects</div>
                     <div className={styles.projectsSubTitle}>
                         Estos son algunos de mis proyectos
                     </div>
                     <div className={styles.projectsList}>
-                        <div className={styles.projectsListContainer}></div>
+                        <div className={styles.projectsListContainer}>
+                            <ul>
+                                <li>
+                                    <p>Password generator</p>
+                                </li>
+                                <li>
+                                    <p>Instagram clone</p>
+                                </li>
+                                <li>
+                                    <p>Weather</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

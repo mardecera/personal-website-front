@@ -8,14 +8,14 @@
 }
 
 .container .contain {
-  width: 50%;
+  width: Min(700px, 90%);
   height: max-content;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
   text-align: center;
-  color: #455A64;
+  color: #455a64;
 }
 
 @media (max-width: 425px) {
@@ -25,17 +25,27 @@
 }
 
 .container .contain .goToHome {
-  width: max-content;
-  background-color: #ff725e;
-  padding: 1em 2em;
-  border-radius: 3rem;
-  color: white;
-  text-decoration: none;
   margin: 0 auto;
+  width: max-content;
+  font-size: 14px;
+  padding: 1em 2em;
+  border-radius: 2rem;
+  border: none;
+  outline: #ff725e;
+  color: #ff725e;
+  box-shadow: inset 5px 5px 20px rgba(136, 136, 136, 0.479);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container .contain .goToHome img {
+  width: 20px;
+  height: 20px;
 }
 
 .container .contain .goToHome:hover {
-  background-color: white;
-  color: #FF725E;
-  box-shadow: inset 5px 5px 20px rgba(117, 117, 117, 0.5);
+  background-color: #ff725e;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
