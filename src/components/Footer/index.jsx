@@ -12,19 +12,39 @@ const Footer = () => {
                             <img src={logo} alt="logo" />
                         </figure>
                     </Link>
-                    <span>&copy; <p>mardecera 2022</p> </span>
+                    <span>
+                        &copy; <p>mardecera 2022</p>{' '}
+                    </span>
                 </div>
                 <div className={styles.redes}>
                     <span>FollowMe on:</span>
                     <ul>
                         <li>
-                            <span className='icon-twitter'></span>
+                            <a
+                                href="https://twitter.com/mardecera"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span className="icon-twitter"></span>
+                            </a>
                         </li>
                         <li>
-                            <span className='icon-github'></span>
+                            <a
+                                href="https://github.com/Mardecera"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span className="icon-github"></span>
+                            </a>
                         </li>
                         <li>
-                            <span className='icon-instagram'></span>
+                            <a
+                                href="https://www.instagram.com/mardecera"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span className="icon-instagram"></span>
+                            </a>
                         </li>
                     </ul>
                 </div>

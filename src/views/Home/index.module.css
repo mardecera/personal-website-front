@@ -1,16 +1,29 @@
 .navbar {
+  top: 0;
   width: 100%;
-  background-color: white;
   height: 6rem;
   display: flex;
   justify-content: space-between;
-  padding: 1.5em 10rem;
   align-items: center;
-  position: -webkit-sticky;
+  padding: 1.5em 10rem;
   position: sticky;
-  top: 0;
+  background-color: white;
   box-shadow: 5px 0px 20px rgba(182, 182, 182, 0.5);
-  z-index: 1;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1em 3em;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 425px) {
+  .navbar {
+    height: max-content;
+    padding: 1em 2em;
+  }
 }
 
 .navbar .navbarLogo {
@@ -31,13 +44,71 @@
   align-items: center;
 }
 
+@media (max-width: 1024px) {
+  .navbar .navbarButtons .navbarButtonsList {
+    gap: 0;
+  }
+}
+
 .navbar .navbarButtons .navbarButtonsList a {
   color: var(--primaryColor);
   padding: 1em 2em;
 }
 
+@media (max-width: 375px) {
+  .navbar .navbarButtons .navbarButtonsList a {
+    padding: 1em;
+  }
+}
+
 .navbar .navbarButtons .navbarButtonsList a:hover {
   color: #ff725e;
+}
+
+.navbar .navbarButtons .closeMenu {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9e9e9;
+  border-radius: 0.3rem;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem 2rem;
+}
+
+.navbar .navbarMenu button {
+  padding: 0.7em 1.4em;
+  outline: none;
+  border: none;
+  border-radius: 0.3em;
+}
+
+@media (max-width: 1440px) {
+  .navbar .navbarContactme {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inherit;
+    border-radius: 100%;
+    margin: 2rem;
+  }
+  .navbar .navbarContactme button {
+    padding: 0 !important;
+    width: 4rem;
+    height: 4rem;
+  }
+  .navbar .navbarContactme button span {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(40%, 50%);
+  }
 }
 
 .navbar .navbarContactme button {
@@ -48,10 +119,10 @@
   outline: #ff725e;
   color: #ff725e;
   box-shadow: inset 5px 5px 10px rgba(165, 165, 165, 0.3);
+  transition: background 0.8s ease, color 0.8s ease;
 }
 
 .navbar .navbarContactme button:hover {
-  background: #ff725e;
   background: linear-gradient(90deg, #ff725e 0%, #792994 100%);
   color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -65,21 +136,40 @@
   justify-content: space-between;
   align-items: center;
   background-image: url("/images/space.jpg");
+  z-index: -4;
+  position: relative;
+  overflow: hidden;
 }
 
 .home .homeContainer {
+  width: 90%;
+  max-width: 90%;
   margin: 0 auto;
   height: max-content;
   display: flex;
   gap: 5rem;
   justify-content: space-between;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .home .homeContainer {
+    gap: 2rem;
+  }
 }
 
 .home .homeContainer .homeInfo {
   color: white;
   width: max-content;
   display: flex;
-  margin-top: 15%;
+  z-index: -1;
+  margin: 15% auto;
+}
+
+@media (max-width: 425px) {
+  .home .homeContainer .homeInfo {
+    margin-top: 0;
+  }
 }
 
 .home .homeContainer .homeInfo .homeInfoContainer {
@@ -134,6 +224,24 @@
   font-weight: bold;
 }
 
+@media (max-width: 1024px) {
+  .home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+    font-size: 2.1rem;
+  }
+}
+
 .home .homeContainer .homeInfo .homeInfoContainer .homeInfoJob {
   font-size: 1.5rem;
   line-height: 1;
@@ -143,6 +251,24 @@
   width: 400px;
   display: flex;
   justify-content: center;
+  z-index: -3;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .home .homeContainer .homePicture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(30%, -20%);
+  }
+}
+
+@media (max-width: 425px) {
+  .home .homeContainer .homePicture {
+    width: 110%;
+    left: 0;
+  }
 }
 
 .home .homeContainer .homePicture figure {
@@ -150,6 +276,7 @@
 }
 
 .about {
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -158,39 +285,88 @@
   background-color: white;
 }
 
-.about .aboutContainer {
-  width: max-content;
-  display: flex;
-  gap: 10rem;
+@media (max-width: 425px) {
+  .about {
+    padding: 4rem 0;
+  }
 }
 
-.about .aboutContainer .aboutImage {
+.about .aboutContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .about .aboutContainer {
+    width: 80%;
+  }
+}
+
+.about .aboutContent {
+  width: max-content;
+  display: flex;
+  gap: 5rem;
+}
+
+@media (max-width: 768px) {
+  .about .aboutContent {
+    width: 100%;
+    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (max-width: 425px) {
+  .about .aboutContent {
+    display: block;
+  }
+}
+
+@media (max-width: 730px) {
+  .about .aboutContent {
+    display: flex;
+  }
+}
+
+.about .aboutContent .aboutImage {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 30px -12px inset, rgba(0, 0, 0, 0.3) 0px 10px 30px -18px inset;
   border-radius: 15px;
   height: max-content;
   overflow: hidden;
   padding: 2rem;
   padding-bottom: 0;
+  width: 250px;
+  min-width: 250px;
 }
 
-.about .aboutContainer .aboutImage figure {
+@media (max-width: 730px) {
+  .about .aboutContent .aboutImage {
+    display: none;
+  }
+}
+
+.about .aboutContent .aboutImage figure {
   width: 200px;
   height: max-content;
 }
 
-.about .aboutContainer .aboutInfo {
+.about .aboutContent .aboutInfo {
   max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.about .aboutContainer .aboutInfo .aboutTitle {
+.about .aboutContent .aboutInfo .aboutTitle {
   font-weight: bold;
   position: relative;
 }
 
-.about .aboutContainer .aboutInfo .aboutTitle::before {
+.about .aboutContent .aboutInfo .aboutTitle::before {
   content: '';
   width: 10%;
   height: 2px;
@@ -199,16 +375,16 @@
   bottom: -0.5rem;
 }
 
-.about .aboutContainer .aboutInfo .aboutSubTitle {
+.about .aboutContent .aboutInfo .aboutSubTitle {
   font-size: 2rem;
   font-weight: bolder;
 }
 
-.about .aboutContainer .aboutInfo .aboutDescription {
+.about .aboutContent .aboutInfo .aboutDescription {
   font-weight: 300;
 }
 
-.about .aboutContainer .aboutInfo .aboutFollowMeContain {
+.about .aboutContent .aboutInfo .aboutFollowMeContain {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -216,13 +392,13 @@
   font-size: 0.9rem;
 }
 
-.about .aboutContainer .aboutInfo .aboutFollowMeContain ul {
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul {
   list-style: none;
   display: flex;
   gap: 0.5rem;
 }
 
-.about .aboutContainer .aboutInfo .aboutFollowMeContain ul li {
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul li a {
   width: 2rem;
   height: 2rem;
   background-color: #455a64;
@@ -230,40 +406,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.about .aboutContainer .aboutInfo .aboutFollowMeContain ul li a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul li a:hover {
+  opacity: 1;
 }
 
-.about .aboutContainer .aboutInfo .aboutFollowMeContain ul li span {
-  font-size: 1.1rem;
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul li span {
+  font-size: 1rem;
 }
 
-.about .aboutContainer .aboutInfo .aboutDownloadCV {
+.about .aboutContent .aboutInfo .aboutDownloadCV {
   width: max-content;
   height: max-content;
 }
 
-.about .aboutContainer .aboutInfo .aboutDownloadCV a {
+.about .aboutContent .aboutInfo .aboutDownloadCV a {
   display: block;
-  padding: 1.2em 2em;
+  padding: 1em 2em;
   border: none;
   outline: none;
   background-color: #ff725e;
   color: white;
   border-radius: 5rem;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
 }
 
-.about .aboutContainer .aboutInfo .aboutDownloadCV a:hover {
+.about .aboutContent .aboutInfo .aboutDownloadCV a:hover {
+  outline: 3px solid white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 30px -12px;
 }
 
 .hobbies {
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -274,16 +452,43 @@
   color: white;
 }
 
+@media (max-width: 425px) {
+  .hobbies {
+    padding: 4rem 0;
+  }
+}
+
 .hobbies .hobbiesContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .hobbies .hobbiesContainer {
+    width: 80%;
+    max-width: 80%;
+  }
+}
+
+.hobbies .hobbiesContent {
   width: max-content;
 }
 
-.hobbies .hobbiesContainer .hobbiesTitle {
+@media (max-width: 768px) {
+  .hobbies .hobbiesContent {
+    width: 100%;
+  }
+}
+
+.hobbies .hobbiesContent .hobbiesTitle {
   font-weight: bold;
   position: relative;
 }
 
-.hobbies .hobbiesContainer .hobbiesTitle::before {
+.hobbies .hobbiesContent .hobbiesTitle::before {
   content: '';
   width: 5%;
   height: 2px;
@@ -292,25 +497,42 @@
   bottom: -0.2rem;
 }
 
-.hobbies .hobbiesContainer .hobbiesSubTitle {
+.hobbies .hobbiesContent .hobbiesSubTitle {
   font-size: 2rem;
   font-weight: bolder;
 }
 
-.hobbies .hobbiesContainer .hobbiesList {
-  max-width: max-content;
+.hobbies .hobbiesContent .hobbiesList {
+  width: 100%;
   padding: 2rem 0rem;
   color: #1a2d36;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain {
+  width: 100%;
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul {
   list-style: none;
   display: flex;
   gap: 1rem;
   width: 100%;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul li {
+@media (max-width: 768px) {
+  .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 425px) {
+  .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li {
   width: 200px;
   height: 100px;
   border-radius: 0.5rem;
@@ -322,11 +544,18 @@
   transition: filter 0.3s ease-in;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul li:hover {
+@media (max-width: 768px) {
+  .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li {
+    width: 100%;
+    height: 8rem;
+  }
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li:hover {
   filter: grayscale(0%);
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul li div {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li div {
   width: 100%;
   height: 100%;
   display: flex;
@@ -337,35 +566,36 @@
   transition: backdrop-filter 0.2s ease-in;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul li div:hover {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li div:hover {
   backdrop-filter: blur(1px);
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul li div .itemTitle {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li div .itemTitle {
   pointer-events: none;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul .itemPhotography {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemPhotography {
   background-image: url("/images/photography.jpg");
   background-size: cover;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul .itemCinema {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemCinema {
   background-image: url("/images/cinema.jpg");
   background-size: cover;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul .itemDraw {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemDraw {
   background-image: url("/images/draw.jpg");
   background-size: cover;
 }
 
-.hobbies .hobbiesContainer .hobbiesList .hobbiesListContain ul .itemProgramming {
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemProgramming {
   background-image: url("/images/programming.jpg");
   background-size: cover;
 }
 
 .skills {
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -374,16 +604,42 @@
   background-color: white;
 }
 
+@media (max-width: 425px) {
+  .skills {
+    padding: 4rem 0;
+  }
+}
+
 .skills .skillsContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .skills .skillsContainer {
+    width: 80%;
+  }
+}
+
+.skills .skillsContent {
   width: max-content;
 }
 
-.skills .skillsContainer .skillsTitle {
+@media (max-width: 768px) {
+  .skills .skillsContent {
+    width: 100%;
+  }
+}
+
+.skills .skillsContent .skillsTitle {
   font-weight: bold;
   position: relative;
 }
 
-.skills .skillsContainer .skillsTitle::before {
+.skills .skillsContent .skillsTitle::before {
   content: '';
   width: 5%;
   height: 2px;
@@ -392,18 +648,18 @@
   bottom: -0.2rem;
 }
 
-.skills .skillsContainer .skillsSubTitle {
+.skills .skillsContent .skillsSubTitle {
   font-size: 2rem;
   font-weight: bolder;
 }
 
-.skills .skillsContainer .skillsList {
+.skills .skillsContent .skillsList {
   max-width: 1000px;
   padding: 2rem 0rem;
   color: #455a64;
 }
 
-.skills .skillsContainer .skillsList .skillsListContainer ul {
+.skills .skillsContent .skillsList .skillsListContainer ul {
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -411,7 +667,19 @@
   justify-content: center;
 }
 
-.skills .skillsContainer .skillsList .skillsListContainer ul .hobbiesListItem {
+@media (max-width: 768px) {
+  .skills .skillsContent .skillsList .skillsListContainer ul {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills .skillsContent .skillsList .skillsListContainer ul {
+    justify-content: flex-start;
+  }
+}
+
+.skills .skillsContent .skillsList .skillsListContainer ul .hobbiesListItem {
   display: flex;
   box-shadow: inset 5px 5px 10px rgba(153, 153, 153, 0.3);
   border-radius: 0.5rem;
@@ -419,11 +687,18 @@
   padding: 1rem 2rem;
 }
 
-.skills .skillsContainer .skillsList .skillsListContainer ul .hobbiesListItem span::before {
+@media (max-width: 768px) {
+  .skills .skillsContent .skillsList .skillsListContainer ul .hobbiesListItem {
+    padding: 1rem;
+  }
+}
+
+.skills .skillsContent .skillsList .skillsListContainer ul .hobbiesListItem span::before {
   font-size: 1.5rem;
 }
 
 .projects {
+  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -434,16 +709,42 @@
   color: white;
 }
 
+@media (max-width: 425px) {
+  .projects {
+    padding: 4rem 0;
+  }
+}
+
 .projects .projectsContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .projects .projectsContainer {
+    width: 80%;
+  }
+}
+
+.projects .projectsContent {
   width: max-content;
 }
 
-.projects .projectsContainer .projectsTitle {
+@media (max-width: 768px) {
+  .projects .projectsContent {
+    width: 100%;
+  }
+}
+
+.projects .projectsContent .projectsTitle {
   font-weight: bold;
   position: relative;
 }
 
-.projects .projectsContainer .projectsTitle::before {
+.projects .projectsContent .projectsTitle::before {
   content: '';
   width: 10%;
   height: 2px;
@@ -452,31 +753,50 @@
   bottom: -0.2rem;
 }
 
-.projects .projectsContainer .projectsSubTitle {
+.projects .projectsContent .projectsSubTitle {
   font-size: 2rem;
   font-weight: bolder;
 }
 
-.projects .projectsContainer .projectsList {
+.projects .projectsContent .projectsList {
   max-width: 1000px;
   padding: 2rem 0rem;
   color: #455a64;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul {
+.projects .projectsContent .projectsList .projectsListContainer ul {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul li {
+@media (max-width: 768px) {
+  .projects .projectsContent .projectsList .projectsListContainer ul {
+    flex-direction: column;
+  }
+}
+
+.projects .projectsContent .projectsList .projectsListContainer ul li {
   width: 15rem;
   height: 7rem;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul li a {
+@media (max-width: 768px) {
+  .projects .projectsContent .projectsList .projectsListContainer ul li {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 425px) {
+  .projects .projectsContent .projectsList .projectsListContainer ul li {
+    height: 200px;
+  }
+}
+
+.projects .projectsContent .projectsList .projectsListContainer ul li a {
   width: 100%;
   height: 100%;
   color: #1a2d36;
@@ -487,25 +807,25 @@
   transition: backdrop-filter 0.3s ease-in-out;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul li a:hover {
+.projects .projectsContent .projectsList .projectsListContainer ul li a:hover {
   backdrop-filter: blur(0px);
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul li a p {
+.projects .projectsContent .projectsList .projectsListContainer ul li a p {
   pointer-events: none;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul .projectPasswordGenerator {
+.projects .projectsContent .projectsList .projectsListContainer ul .projectPasswordGenerator {
   background-image: url("/images/screenshoot.png");
   background-size: cover;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul .projectInstagramClone {
+.projects .projectsContent .projectsList .projectsListContainer ul .projectInstagramClone {
   background-image: url("/images/screenshoot.png");
   background-size: cover;
 }
 
-.projects .projectsContainer .projectsList .projectsListContainer ul .projectWeather {
+.projects .projectsContent .projectsList .projectsListContainer ul .projectWeather {
   background-image: url("/images/screenshoot.png");
   background-size: cover;
 }

@@ -9,7 +9,7 @@
 }
 
 .container .contain {
-  width: Min(700px, 90%);
+  width: Min(80%, 500px);
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,13 @@
   backdrop-filter: blur(50px);
   padding: 2rem;
   border-radius: .5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-@media (max-width: 425px) {
-  .container .contain {
-    width: 90%;
+@media (max-width: 1440px) {
+  .container .contain img {
+    width: 100%;
+    margin: 0 auto;
   }
 }
 

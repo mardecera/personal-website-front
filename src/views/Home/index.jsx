@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import getWindowDimensions from '../../services/useWindowDimensions'
 import Footer from '../../components/Footer'
 import styles from './index.module.css'
 import logo from '/images/logo.svg'
@@ -6,6 +8,48 @@ import astros from '/images/astros.svg'
 import photo from '/images/me_character.svg'
 
 const Home = () => {
+    const { width } = getWindowDimensions()
+    const [menuBar, setMenuBar] = useState(true)
+    const [stateMenu, setStateMenu] = useState('')
+    const [stateNavbar, setStateNavbar] = useState('')
+    const [stateCloseMenu, setStateCloseMenu] = useState('')
+
+    useEffect(() => {
+        if (width < 768) {
+            setMenuBar(true)
+            setStateMenu('show')
+            setStateNavbar('hiddenNavbar')
+            setStateCloseMenu('show')
+        } else {
+            setMenuBar(false)
+            setStateMenu('hidden')
+            setStateNavbar('show')
+            setStateCloseMenu('hidden')
+        }
+    }, [width])
+
+    const handleToggleMenu = () => {
+        setStateNavbar(
+            stateNavbar === 'showNavbar' ? 'hiddenNavbar' : 'showNavbar'
+        )
+    }
+
+    const handleCloseMenuBar = () => {
+        if (menuBar) setStateNavbar('hiddenNavbar')
+    }
+
+    const handleToggleContactme = () => {
+        return width <= 1440 ? (
+            <button>
+                <span className="icon-send"></span>
+            </button>
+        ) : (
+            <button>Contact me</button>
+        )
+    }
+
+    console.log(width, stateNavbar, stateMenu)
+
     return (
         <>
             <div className={styles.navbar} id="navbar">
@@ -17,27 +61,41 @@ const Home = () => {
                         <p>Mardecera</p>
                     </Link>
                 </div>
-                <nav className={styles.navbarButtons}>
+                <nav className={`${styles.navbarButtons} ${stateNavbar}`}>
                     <ul className={styles.navbarButtonsList}>
                         <li>
-                            <a href="/#home">Home</a>
+                            <a href="/#home" onClick={() => handleCloseMenuBar()} >Home</a>
                         </li>
                         <li>
-                            <a href="/#about">About me</a>
+                            <a href="/#about" onClick={() => handleCloseMenuBar()}>About me</a>
                         </li>
                         <li>
-                            <a href="/#hobbies">Hobbies</a>
+                            <a href="/#hobbies" onClick={() => handleCloseMenuBar()}>Hobbies</a>
                         </li>
                         <li>
-                            <a href="/#skills">Skills</a>
+                            <a href="/#skills" onClick={() => handleCloseMenuBar()}>Skills</a>
                         </li>
                         <li>
-                            <a href="/#projects">Projects</a>
+                            <a href="/#projects" onClick={() => handleCloseMenuBar()}>Projects</a>
                         </li>
                     </ul>
+                    <button
+                        className={`${styles.closeMenu} ${stateCloseMenu}`}
+                        onClick={() => handleToggleMenu()}
+                    >
+                        x
+                    </button>
                 </nav>
-                <div className={styles.navbarContactme}>
-                    <button>Contact Me</button>
+                <div className={`${styles.navbarContactme} `}>
+                    {handleToggleContactme()}
+                </div>
+                <div className={`${styles.navbarMenu} ${stateMenu}`}>
+                    <button
+                        className={styles.menuButton}
+                        onClick={() => handleToggleMenu()}
+                    >
+                        <span className="icon-tree-dots"></span>
+                    </button>
                 </div>
             </div>
             <div className={styles.home} id="home">
@@ -63,211 +121,240 @@ const Home = () => {
             </div>
             <div className={styles.about} id="about">
                 <div className={styles.aboutContainer}>
-                    <div className={styles.aboutImage}>
-                        <figure>
-                            <img src={photo} alt="me" />
-                        </figure>
-                    </div>
-                    <div className={styles.aboutInfo}>
-                        <div className={styles.aboutTitle}>About me</div>
-                        <div className={styles.aboutSubTitle}>
-                            <p>
-                                {/* Soy alguien entusiasta por las programación web */}
-                                I am someone who is enthusiastic about web
-                                programming
-                            </p>
+                    <div className={styles.aboutContent}>
+                        <div className={styles.aboutImage}>
+                            <figure>
+                                <img src={photo} alt="me" />
+                            </figure>
                         </div>
-                        <div className={styles.aboutDescription}>
-                            <p>
-                                I’m an enthusiastic person to learn new ways of
-                                programming, proactive and energetic. I've
-                                developed some web pages from scratch using only
-                                css, html and js, without frameworks; but,
-                                React.js is really getting me excited.
-                            </p>
-                        </div>
-                        <div className={styles.aboutFollowMe}>
-                            <div className={styles.aboutFollowMeContain}>
-                                <span>Follow me: </span>
-                                <span>
-                                    <ul>
-                                        <li>
-                                            <a
-                                                href="https://twitter.com/mardecera"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="icon-twitter"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="https://github.com/Mardecera"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="icon-github"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="https://www.instagram.com/mardecera"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <span className="icon-instagram"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </span>
+                        <div className={styles.aboutInfo}>
+                            <div className={styles.aboutTitle}>About me</div>
+                            <div className={styles.aboutSubTitle}>
+                                <p>
+                                    {/* Soy alguien entusiasta por las programación web */}
+                                    I am someone who is enthusiastic about web
+                                    programming
+                                </p>
                             </div>
-                        </div>
-                        <div className={styles.aboutDownloadCV}>
-                            <a href="/docs/cv.pdf" download={'CV'}>Download CV</a>
+                            <div className={styles.aboutDescription}>
+                                <p>
+                                    I’m an enthusiastic person to learn new ways
+                                    of programming, proactive and energetic.
+                                    I've developed some web pages from scratch
+                                    using only css, html and js, without
+                                    frameworks; but, React.js is really getting
+                                    me excited.
+                                </p>
+                            </div>
+                            <div className={styles.aboutFollowMe}>
+                                <div className={styles.aboutFollowMeContain}>
+                                    <span>Follow me: </span>
+                                    <span>
+                                        <ul>
+                                            <li>
+                                                <a
+                                                    href="https://twitter.com/mardecera"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <span className="icon-twitter"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://github.com/Mardecera"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <span className="icon-github"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.instagram.com/mardecera"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <span className="icon-instagram"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                            <div className={styles.aboutDownloadCV}>
+                                <a href="/docs/cv.pdf" download={'CV'}>
+                                    Download CV
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={styles.hobbies} id="hobbies">
                 <div className={styles.hobbiesContainer}>
-                    <div className={styles.hobbiesTitle}>Hobbies</div>
-                    <div className={styles.hobbiesSubTitle}>
-                        {/* Los hobbies son esenciales para un equilibrio */}
-                        Hobbies are essential for a balance
-                    </div>
-                    <div className={styles.hobbiesList}>
-                        <div className={styles.hobbiesListContain}>
-                            <ul>
-                                <li className={styles.itemPhotography}>
-                                    <div>
-                                        <div className={styles.itemTitle}>
-                                            Photography
+                    <div className={styles.hobbiesContent}>
+                        <div className={styles.hobbiesTitle}>Hobbies</div>
+                        <div className={styles.hobbiesSubTitle}>
+                            {/* Los hobbies son esenciales para un equilibrio */}
+                            Hobbies are essential for a balance
+                        </div>
+                        <div className={styles.hobbiesList}>
+                            <div className={styles.hobbiesListContain}>
+                                <ul>
+                                    <li className={styles.itemPhotography}>
+                                        <div>
+                                            <div className={styles.itemTitle}>
+                                                Photography
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li className={styles.itemCinema}>
-                                    <div>
-                                        <div className={styles.itemTitle}>
-                                            Cinema
+                                    </li>
+                                    <li className={styles.itemCinema}>
+                                        <div>
+                                            <div className={styles.itemTitle}>
+                                                Cinema
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li className={styles.itemDraw}>
-                                    <div>
-                                        <div className={styles.itemTitle}>
-                                            Draw
+                                    </li>
+                                    <li className={styles.itemDraw}>
+                                        <div>
+                                            <div className={styles.itemTitle}>
+                                                Draw
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li className={styles.itemProgramming}>
-                                    <div>
-                                        <div className={styles.itemTitle}>
-                                            Programming
+                                    </li>
+                                    <li className={styles.itemProgramming}>
+                                        <div>
+                                            <div className={styles.itemTitle}>
+                                                Programming
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={styles.skills} id="skills">
                 <div className={styles.skillsContainer}>
-                    <div className={styles.skillsTitle}>Skills</div>
-                    <div className={styles.skillsSubTitle}>
-                        {/* Las skills se desarrollan y mejoran continuamente */}
-                        Skills are continuously developed and improved
-                    </div>
-                    <div className={styles.skillsList}>
-                        <div className={styles.skillsListContainer}>
-                            <ul>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-javascript"></span>
-                                        <div className={styles.itemName}>
-                                            Javascript
+                    <div className={styles.skillsContent}>
+                        <div className={styles.skillsTitle}>Skills</div>
+                        <div className={styles.skillsSubTitle}>
+                            {/* Las skills se desarrollan y mejoran continuamente */}
+                            Skills are continuously developed and improved
+                        </div>
+                        <div className={styles.skillsList}>
+                            <div className={styles.skillsListContainer}>
+                                <ul>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-javascript"></span>
+                                            <div className={styles.itemName}>
+                                                JavaScript
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-git"></span>
-                                        <div className={styles.itemName}>
-                                            Git
+                                    </li>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-git"></span>
+                                            <div className={styles.itemName}>
+                                                Git
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-html"></span>
-                                        <div className={styles.itemName}>
-                                            Html
+                                    </li>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-html"></span>
+                                            <div className={styles.itemName}>
+                                                Html5
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-css3"></span>
-                                        <div className={styles.itemName}>
-                                            Css
+                                    </li>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-css3"></span>
+                                            <div className={styles.itemName}>
+                                                Css3
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-react"></span>
-                                        <div className={styles.itemName}>
-                                            React Js
+                                    </li>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-react"></span>
+                                            <div className={styles.itemName}>
+                                                React Js
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-figma"></span>
-                                        <div className={styles.itemName}>
-                                            Figma
+                                    </li>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-figma"></span>
+                                            <div className={styles.itemName}>
+                                                Figma
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className={styles.hobbiesListItem}>
-                                        <span className="icon-sass"></span>
-                                        <div className={styles.itemName}>
-                                            Sass
+                                    </li>
+                                    <li>
+                                        <div className={styles.hobbiesListItem}>
+                                            <span className="icon-sass"></span>
+                                            <div className={styles.itemName}>
+                                                Sass
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={styles.projects} id="projects">
                 <div className={styles.projectsContainer}>
-                    <div className={styles.projectsTitle}>Projects</div>
-                    <div className={styles.projectsSubTitle}>
-                        {/* Estos son algunos de mis proyectos */}
-                        These are some of my projects
-                    </div>
-                    <div className={styles.projectsList}>
-                        <div className={styles.projectsListContainer}>
-                            <ul>
-                                <li className={styles.projectPasswordGenerator}>
-                                    <a href="https://passwordgenerator.mardecera.com" target="_blank" rel='noopener noreferrer'>
-                                        <p>Password generator</p>
-                                    </a>
-                                </li>
-                                <li className={styles.projectInstagramClone}>
-                                    <a  href="https://passwordgenerator.mardecera.com" target="_blank" rel='noopener noreferrer'>
-                                        <p>Instagram clone</p>
-                                    </a>
-                                </li>
-                                <li className={styles.projectWeather}>
-                                    <a  href="https://passwordgenerator.mardecera.com" target="_blank" rel='noopener noreferrer'>
-                                        <p>Weather</p>
-                                    </a>
-                                </li>
-                            </ul>
+                    <div className={styles.projectsContent}>
+                        <div className={styles.projectsTitle}>Projects</div>
+                        <div className={styles.projectsSubTitle}>
+                            {/* Estos son algunos de mis proyectos */}
+                            These are some of my projects
+                        </div>
+                        <div className={styles.projectsList}>
+                            <div className={styles.projectsListContainer}>
+                                <ul>
+                                    <li
+                                        className={
+                                            styles.projectPasswordGenerator
+                                        }
+                                    >
+                                        <a
+                                            href="https://passwordgenerator.mardecera.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <p>Password generator</p>
+                                        </a>
+                                    </li>
+                                    <li
+                                        className={styles.projectInstagramClone}
+                                    >
+                                        <a
+                                            href="https://passwordgenerator.mardecera.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <p>Instagram clone</p>
+                                        </a>
+                                    </li>
+                                    <li className={styles.projectWeather}>
+                                        <a
+                                            href="https://passwordgenerator.mardecera.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <p>Weather</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
