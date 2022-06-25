@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'icomoon';
-    src: url('/fonts/icomoon.ttf');
+    src: url('../fonts/icomoon.ttf');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -68,4 +68,9 @@
 
 .icon-send:before {
     content: '\e90d';
+}
+
+.icon-arrow-up:before {
+    content: '\e90e';
+    color: #515151;
 }

@@ -101,6 +101,7 @@
     padding: 0 !important;
     width: 4rem;
     height: 4rem;
+    box-shadow: inset 5px 5px 10px rgba(165, 165, 165, 0.3), -5px 10px 10px rgba(126, 126, 126, 0.466) !important;
   }
   .navbar .navbarContactme button span {
     font-size: 2rem;

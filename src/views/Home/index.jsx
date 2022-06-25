@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import getWindowDimensions from '../../services/useWindowDimensions'
 import Footer from '../../components/Footer'
+import ButtonToTop from '../../components/ButtonToTop'
 import styles from './index.module.css'
 import logo from '/images/logo.svg'
 import astros from '/images/astros.svg'
@@ -39,8 +40,12 @@ const Home = () => {
     }
 
     const handleToggleContactme = () => {
+        const sendEmail = () => {
+            window.open('mailto:mardecera.persona@gmail.com', 'mail')
+        }
+
         return width <= 1440 ? (
-            <button>
+            <button onClick={() => sendEmail()}>
                 <span className="icon-send"></span>
             </button>
         ) : (
@@ -48,7 +53,9 @@ const Home = () => {
         )
     }
 
-    console.log(width, stateNavbar, stateMenu)
+    const handleToTop = () => {
+        document.documentElement.scrollTop = 0
+    }
 
     return (
         <>
@@ -64,19 +71,44 @@ const Home = () => {
                 <nav className={`${styles.navbarButtons} ${stateNavbar}`}>
                     <ul className={styles.navbarButtonsList}>
                         <li>
-                            <a href="/#home" onClick={() => handleCloseMenuBar()} >Home</a>
+                            <a
+                                href="/#home"
+                                onClick={() => handleCloseMenuBar()}
+                            >
+                                Home
+                            </a>
                         </li>
                         <li>
-                            <a href="/#about" onClick={() => handleCloseMenuBar()}>About me</a>
+                            <a
+                                href="/#about"
+                                onClick={() => handleCloseMenuBar()}
+                            >
+                                About me
+                            </a>
                         </li>
                         <li>
-                            <a href="/#hobbies" onClick={() => handleCloseMenuBar()}>Hobbies</a>
+                            <a
+                                href="/#hobbies"
+                                onClick={() => handleCloseMenuBar()}
+                            >
+                                Hobbies
+                            </a>
                         </li>
                         <li>
-                            <a href="/#skills" onClick={() => handleCloseMenuBar()}>Skills</a>
+                            <a
+                                href="/#skills"
+                                onClick={() => handleCloseMenuBar()}
+                            >
+                                Skills
+                            </a>
                         </li>
                         <li>
-                            <a href="/#projects" onClick={() => handleCloseMenuBar()}>Projects</a>
+                            <a
+                                href="/#projects"
+                                onClick={() => handleCloseMenuBar()}
+                            >
+                                Projects
+                            </a>
                         </li>
                     </ul>
                     <button
@@ -97,6 +129,7 @@ const Home = () => {
                         <span className="icon-tree-dots"></span>
                     </button>
                 </div>
+                <ButtonToTop handleClick={handleToTop} />
             </div>
             <div className={styles.home} id="home">
                 <div className={styles.homeContainer}>
