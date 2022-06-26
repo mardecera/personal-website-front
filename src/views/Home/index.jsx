@@ -41,7 +41,7 @@ const Home = () => {
 
     const handleToggleContactme = () => {
         const sendEmail = () => {
-            window.open('mailto:mardecera.persona@gmail.com', 'mail')
+            window.open('mailto:mardecera.personal@gmail.com', 'mail')
         }
 
         return width <= 1440 ? (
