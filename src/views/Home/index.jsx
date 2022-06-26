@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import getWindowDimensions from '../../services/useWindowDimensions'
-import Footer from '../../components/Footer'
-import ButtonToTop from '../../components/ButtonToTop'
+import { imagotipo, astros, myPhoto } from '../../assets'
+import { logotipo } from '../../consts'
+import { ButtonToTop, Footer } from '../../components'
+import { useWindowDimensions } from '../../hooks'
 import styles from './index.module.css'
-import logo from '/images/logo.svg'
-import astros from '/images/astros.svg'
-import photo from '/images/me_character.svg'
 
 const Home = () => {
-    const { width } = getWindowDimensions()
+    const { width } = useWindowDimensions()
     const [menuBar, setMenuBar] = useState(true)
     const [stateMenu, setStateMenu] = useState('')
     const [stateNavbar, setStateNavbar] = useState('')
@@ -63,9 +61,9 @@ const Home = () => {
                 <div>
                     <Link to={'/'} className={styles.navbarLogo}>
                         <figure className={styles.logo}>
-                            <img src={logo} alt="logo" />
+                            <img src={imagotipo} alt="logo" />
                         </figure>
-                        <p>Mardecera</p>
+                        <p>{logotipo}</p>
                     </Link>
                 </div>
                 <nav className={`${styles.navbarButtons} ${stateNavbar}`}>
@@ -157,7 +155,7 @@ const Home = () => {
                     <div className={styles.aboutContent}>
                         <div className={styles.aboutImage}>
                             <figure>
-                                <img src={photo} alt="me" />
+                                <img src={myPhoto} alt="me" />
                             </figure>
                         </div>
                         <div className={styles.aboutInfo}>

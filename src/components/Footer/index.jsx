@@ -1,6 +1,6 @@
-import styles from './index.module.css'
-import logo from '/images/logo.svg'
 import { Link } from 'react-router-dom'
+import { imagotipo } from '../../assets'
+import styles from './index.module.css'
 
 const Footer = () => {
     return (
@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className={styles.copy}>
                     <Link to={'/'} className={styles.logo}>
                         <figure className={styles}>
-                            <img src={logo} alt="logo" />
+                            <img src={imagotipo} alt="logo" />
                         </figure>
                     </Link>
                     <span>
