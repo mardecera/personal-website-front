@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { imagotipo, astros, myPhoto } from '../../assets'
-import { logotipo } from '../../consts'
-import { ButtonToTop, Footer } from '../../components'
+import * as constants from '../../consts'
+import { ButtonToTop, ButtonMessage, Footer } from '../../components'
 import { useWindowDimensions } from '../../hooks'
 import styles from './index.module.css'
 
@@ -37,24 +37,6 @@ const Home = () => {
         if (menuBar) setStateNavbar('hiddenNavbar')
     }
 
-    const handleToggleContactme = () => {
-        const sendEmail = () => {
-            window.open('mailto:mardecera.personal@gmail.com', 'mail')
-        }
-
-        return width <= 1440 ? (
-            <button onClick={() => sendEmail()}>
-                <span className="icon-send"></span>
-            </button>
-        ) : (
-            <button>Contact me</button>
-        )
-    }
-
-    const handleToTop = () => {
-        document.documentElement.scrollTop = 0
-    }
-
     return (
         <>
             <div className={styles.navbar} id="navbar">
@@ -63,7 +45,7 @@ const Home = () => {
                         <figure className={styles.logo}>
                             <img src={imagotipo} alt="logo" />
                         </figure>
-                        <p>{logotipo}</p>
+                        <p>{constants.logotipo}</p>
                     </Link>
                 </div>
                 <nav className={`${styles.navbarButtons} ${stateNavbar}`}>
@@ -73,7 +55,7 @@ const Home = () => {
                                 href="/#home"
                                 onClick={() => handleCloseMenuBar()}
                             >
-                                Home
+                                {constants.homeTitle}
                             </a>
                         </li>
                         <li>
@@ -81,7 +63,7 @@ const Home = () => {
                                 href="/#about"
                                 onClick={() => handleCloseMenuBar()}
                             >
-                                About me
+                                {constants.aboutTitle}
                             </a>
                         </li>
                         <li>
@@ -89,7 +71,7 @@ const Home = () => {
                                 href="/#hobbies"
                                 onClick={() => handleCloseMenuBar()}
                             >
-                                Hobbies
+                                {constants.hobbiesTitle}
                             </a>
                         </li>
                         <li>
@@ -97,7 +79,7 @@ const Home = () => {
                                 href="/#skills"
                                 onClick={() => handleCloseMenuBar()}
                             >
-                                Skills
+                                {constants.skillsTitle}
                             </a>
                         </li>
                         <li>
@@ -105,7 +87,7 @@ const Home = () => {
                                 href="/#projects"
                                 onClick={() => handleCloseMenuBar()}
                             >
-                                Projects
+                                {constants.projectsTitle}
                             </a>
                         </li>
                     </ul>
@@ -117,17 +99,18 @@ const Home = () => {
                     </button>
                 </nav>
                 <div className={`${styles.navbarContactme} `}>
-                    {handleToggleContactme()}
+                    <ButtonMessage width={width} />
                 </div>
                 <div className={`${styles.navbarMenu} ${stateMenu}`}>
                     <button
                         className={styles.menuButton}
                         onClick={() => handleToggleMenu()}
+                        arial-label="Button show menu buttons"
                     >
                         <span className="icon-tree-dots"></span>
                     </button>
                 </div>
-                <ButtonToTop handleClick={handleToTop} />
+                <ButtonToTop />
             </div>
             <div className={styles.home} id="home">
                 <div className={styles.homeContainer}>
@@ -159,23 +142,17 @@ const Home = () => {
                             </figure>
                         </div>
                         <div className={styles.aboutInfo}>
-                            <div className={styles.aboutTitle}>About me</div>
+                            <div className={styles.aboutTitle}>
+                                {constants.aboutTitle}
+                            </div>
                             <div className={styles.aboutSubTitle}>
                                 <p>
                                     {/* Soy alguien entusiasta por las programación web */}
-                                    I am someone who is enthusiastic about web
-                                    programming
+                                    {constants.aboutSubTitle}
                                 </p>
                             </div>
                             <div className={styles.aboutDescription}>
-                                <p>
-                                    I’m an enthusiastic person to learn new ways
-                                    of programming, proactive and energetic.
-                                    I've developed some web pages from scratch
-                                    using only css, html and js, without
-                                    frameworks; but, React.js is really getting
-                                    me excited.
-                                </p>
+                                <p>{constants.aboutContent}</p>
                             </div>
                             <div className={styles.aboutFollowMe}>
                                 <div className={styles.aboutFollowMeContain}>
@@ -187,6 +164,7 @@ const Home = () => {
                                                     href="https://twitter.com/mardecera"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
+                                                    aria-label='open user twitter'
                                                 >
                                                     <span className="icon-twitter"></span>
                                                 </a>
@@ -196,6 +174,7 @@ const Home = () => {
                                                     href="https://github.com/Mardecera"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
+                                                    aria-label='open user github'
                                                 >
                                                     <span className="icon-github"></span>
                                                 </a>
@@ -205,6 +184,7 @@ const Home = () => {
                                                     href="https://www.instagram.com/mardecera"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
+                                                    aria-label='open user instagram'
                                                 >
                                                     <span className="icon-instagram"></span>
                                                 </a>
@@ -225,10 +205,12 @@ const Home = () => {
             <div className={styles.hobbies} id="hobbies">
                 <div className={styles.hobbiesContainer}>
                     <div className={styles.hobbiesContent}>
-                        <div className={styles.hobbiesTitle}>Hobbies</div>
+                        <div className={styles.hobbiesTitle}>
+                            {constants.hobbiesTitle}
+                        </div>
                         <div className={styles.hobbiesSubTitle}>
                             {/* Los hobbies son esenciales para un equilibrio */}
-                            Hobbies are essential for a balance
+                            {constants.hobbiesSubTitle}
                         </div>
                         <div className={styles.hobbiesList}>
                             <div className={styles.hobbiesListContain}>
@@ -270,10 +252,12 @@ const Home = () => {
             <div className={styles.skills} id="skills">
                 <div className={styles.skillsContainer}>
                     <div className={styles.skillsContent}>
-                        <div className={styles.skillsTitle}>Skills</div>
+                        <div className={styles.skillsTitle}>
+                            {constants.skillsTitle}
+                        </div>
                         <div className={styles.skillsSubTitle}>
                             {/* Las skills se desarrollan y mejoran continuamente */}
-                            Skills are continuously developed and improved
+                            {constants.skillsSubTitle}
                         </div>
                         <div className={styles.skillsList}>
                             <div className={styles.skillsListContainer}>
@@ -343,10 +327,12 @@ const Home = () => {
             <div className={styles.projects} id="projects">
                 <div className={styles.projectsContainer}>
                     <div className={styles.projectsContent}>
-                        <div className={styles.projectsTitle}>Projects</div>
+                        <div className={styles.projectsTitle}>
+                            {constants.projectsTitle}
+                        </div>
                         <div className={styles.projectsSubTitle}>
                             {/* Estos son algunos de mis proyectos */}
-                            These are some of my projects
+                            {constants.projectsSubTitle}
                         </div>
                         <div className={styles.projectsList}>
                             <div className={styles.projectsListContainer}>

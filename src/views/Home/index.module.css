@@ -136,7 +136,7 @@
   padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
-  background-image: url("../../assets/images/space.jpg");
+  background-image: url("../../assets/images/space.webp");
   z-index: -4;
   position: relative;
   overflow: hidden;
@@ -576,22 +576,22 @@
 }
 
 .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemPhotography {
-  background-image: url("../../assets/images/hobbie-photography.jpg");
+  background-image: url("../../assets/images/hobbie-photography.webp");
   background-size: cover;
 }
 
 .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemCinema {
-  background-image: url("../../assets/images/hobbie-cinema.jpg");
+  background-image: url("../../assets/images/hobbie-cinema.webp");
   background-size: cover;
 }
 
 .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemDraw {
-  background-image: url("../../assets/images/hobbie-draw.jpg");
+  background-image: url("../../assets/images/hobbie-draw.webp");
   background-size: cover;
 }
 
 .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul .itemProgramming {
-  background-image: url("../../assets/images/hobbie-programming.jpg");
+  background-image: url("../../assets/images/hobbie-programming.webp");
   background-size: cover;
 }
 
@@ -817,16 +817,16 @@
 }
 
 .projects .projectsContent .projectsList .projectsListContainer ul .projectPasswordGenerator {
-  background-image: url("../../assets/images/myProject-1.png");
+  background-image: url("../../assets/images/myProject-1.webp");
   background-size: cover;
 }
 
 .projects .projectsContent .projectsList .projectsListContainer ul .projectInstagramClone {
-  background-image: url("../../assets/images/myProject-1.png");
+  background-image: url("../../assets/images/myProject-1.webp");
   background-size: cover;
 }
 
 .projects .projectsContent .projectsList .projectsListContainer ul .projectWeather {
-  background-image: url("../../assets/images/myProject-1.png");
+  background-image: url("../../assets/images/myProject-1.webp");
   background-size: cover;
 }

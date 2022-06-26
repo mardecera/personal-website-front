@@ -24,6 +24,7 @@ const Footer = () => {
                                 href="https://twitter.com/mardecera"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label='open user twitter'
                             >
                                 <span className="icon-twitter"></span>
                             </a>
@@ -33,6 +34,7 @@ const Footer = () => {
                                 href="https://github.com/Mardecera"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label='open user github'
                             >
                                 <span className="icon-github"></span>
                             </a>
@@ -42,6 +44,7 @@ const Footer = () => {
                                 href="https://www.instagram.com/mardecera"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label='open user instagram'
                             >
                                 <span className="icon-instagram"></span>
                             </a>
