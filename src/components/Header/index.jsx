@@ -5,15 +5,15 @@ import { imagotipo } from '../../assets'
 import { useWindowDimensions } from '../../hooks'
 import ButtonToTop from '../ButtonToTop'
 import ButtonMessage from '../ButtonMessage'
-import SectionsNavbar from '../SectionsNavbar'
+import ButtonsToSections from '../ButtonsToSections'
 import styles from './index.module.css'
 
 const Header = () => {
     const { width } = useWindowDimensions()
     const [menuBar, setMenuBar] = useState(true)
-    const [stateMenu, setStateMenu] = useState('')
-    const [stateNavbar, setStateNavbar] = useState('')
-    const [stateCloseMenu, setStateCloseMenu] = useState('')
+    const [stateMenu, setStateMenu] = useState('show')
+    const [stateNavbar, setStateNavbar] = useState('hidden')
+    const [stateCloseMenu, setStateCloseMenu] = useState('show')
 
     useEffect(() => {
         if (width < 768) {
@@ -50,9 +50,7 @@ const Header = () => {
                 </Link>
             </div>
             <nav className={`${styles.navbarButtons} ${stateNavbar}`}>
-                <ul className={styles.navbarButtonsList}>
-                    <SectionsNavbar handleFunction={handleCloseMenuBar} />
-                </ul>
+                <ButtonsToSections handleFunction={handleCloseMenuBar} />
                 <button
                     className={`${styles.closeMenu} ${stateCloseMenu}`}
                     onClick={() => handleToggleMenu()}
@@ -61,9 +59,7 @@ const Header = () => {
                     x
                 </button>
             </nav>
-            <div className={`${styles.navbarContactme} `}>
-                <ButtonMessage width={width} />
-            </div>
+            <ButtonMessage width={width} />
             <div className={`${styles.navbarMenu} ${stateMenu}`}>
                 <button
                     className={styles.menuButton}

@@ -2,7 +2,7 @@ import Header from './Header'
 import Footer from './Footer'
 import ButtonToTop from './ButtonToTop'
 import ButtonMessage from './ButtonMessage'
-import SectionsNavbar from './SectionsNavbar'
+import ButtonsToSections from './ButtonsToSections'
 import FollowMeItems from './FollowMeItems'
 import HobbiesItems from './HobbiesItems'
 import ProjectsItems from './ProjectsItems'
@@ -18,7 +18,7 @@ export {
     Footer,
     ButtonToTop,
     ButtonMessage,
-    SectionsNavbar,
+    ButtonsToSections,
     FollowMeItems,
     HobbiesItems,
     ProjectsItems,

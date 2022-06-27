@@ -1,0 +1,40 @@
+@media (max-width: 1440px) {
+  .navbarContactme {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: inherit;
+    border-radius: 100%;
+    margin: 2rem;
+  }
+  .navbarContactme button {
+    padding: 0 !important;
+    width: 4rem;
+    height: 4rem;
+    box-shadow: inset 5px 5px 10px rgba(165, 165, 165, 0.3), -5px 10px 10px rgba(126, 126, 126, 0.466) !important;
+  }
+  .navbarContactme button span {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(40%, 50%);
+  }
+}
+
+.navbarContactme button {
+  font-size: 14px;
+  padding: 1em 2em;
+  border-radius: 2rem;
+  border: none;
+  outline: #ff725e;
+  color: #ff725e;
+  box-shadow: inset 5px 5px 10px rgba(165, 165, 165, 0.3);
+  transition: background 0.8s ease, color 0.8s ease;
+}
+
+.navbarContactme button:hover {
+  background: linear-gradient(90deg, #ff725e 0%, #792994 100%);
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}

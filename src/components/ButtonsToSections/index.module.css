@@ -1,0 +1,27 @@
+.navbarButtonsList {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .navbarButtonsList {
+    gap: 0;
+  }
+}
+
+.navbarButtonsList a {
+  color: var(--primaryColor);
+  padding: 1em 2em;
+}
+
+@media (max-width: 375px) {
+  .navbarButtonsList a {
+    padding: 1em;
+  }
+}
+
+.navbarButtonsList a:hover {
+  color: #ff725e;
+}

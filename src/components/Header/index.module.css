@@ -37,34 +37,6 @@
   width: 1rem !important;
 }
 
-.navbar .navbarButtons .navbarButtonsList {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  align-items: center;
-}
-
-@media (max-width: 1024px) {
-  .navbar .navbarButtons .navbarButtonsList {
-    gap: 0;
-  }
-}
-
-.navbar .navbarButtons .navbarButtonsList a {
-  color: var(--primaryColor);
-  padding: 1em 2em;
-}
-
-@media (max-width: 375px) {
-  .navbar .navbarButtons .navbarButtonsList a {
-    padding: 1em;
-  }
-}
-
-.navbar .navbarButtons .navbarButtonsList a:hover {
-  color: #ff725e;
-}
-
 .navbar .navbarButtons .closeMenu {
   width: 3rem;
   height: 3rem;
@@ -86,45 +58,4 @@
   outline: none;
   border: none;
   border-radius: 0.3em;
-}
-
-@media (max-width: 1440px) {
-  .navbar .navbarContactme {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    display: inherit;
-    border-radius: 100%;
-    margin: 2rem;
-  }
-  .navbar .navbarContactme button {
-    padding: 0 !important;
-    width: 4rem;
-    height: 4rem;
-    box-shadow: inset 5px 5px 10px rgba(165, 165, 165, 0.3), -5px 10px 10px rgba(126, 126, 126, 0.466) !important;
-  }
-  .navbar .navbarContactme button span {
-    font-size: 2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(40%, 50%);
-  }
-}
-
-.navbar .navbarContactme button {
-  font-size: 14px;
-  padding: 1em 2em;
-  border-radius: 2rem;
-  border: none;
-  outline: #ff725e;
-  color: #ff725e;
-  box-shadow: inset 5px 5px 10px rgba(165, 165, 165, 0.3);
-  transition: background 0.8s ease, color 0.8s ease;
-}
-
-.navbar .navbarContactme button:hover {
-  background: linear-gradient(90deg, #ff725e 0%, #792994 100%);
-  color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
