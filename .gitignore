@@ -13,9 +13,10 @@ dist-ssr
 *.local
 /node_modules/
 /build
-/.firebase
 
 # Editor directories and files
+.firebase/*
+!.firebase/extensions.json
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -28,4 +29,6 @@ dist-ssr
 *.sass
 *.scss
 .prettierrc
-.frebaserc
+.firebaserc
+firebase.json
+package-lock.json
