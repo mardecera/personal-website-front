@@ -4,11 +4,11 @@ const ButtonMessage = ({ width }) => {
 
     if (width <= 1440) {
         return (
-            <button onClick={() => sendEmail()} arial-label="Send Email">
+            <button onClick={() => sendEmail()} aria-label="Send Email">
                 <span className="icon-send"></span>
             </button>
         )
     }
-    return <button onClick={() => sendEmail()} arial-label="Send Email">Contact me</button>
+    return <button onClick={() => sendEmail()} aria-label="Send Email">Contact me</button>
 }
 export default ButtonMessage
