@@ -1,0 +1,146 @@
+.home {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url("../../assets/images/space.webp");
+  z-index: -4;
+  position: relative;
+  overflow: hidden;
+}
+
+.home .homeContainer {
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+  height: max-content;
+  display: flex;
+  gap: 5rem;
+  justify-content: space-between;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .home .homeContainer {
+    gap: 2rem;
+  }
+}
+
+.home .homeContainer .homeInfo {
+  color: white;
+  width: max-content;
+  display: flex;
+  z-index: -1;
+  margin: 15% auto;
+}
+
+@media (max-width: 425px) {
+  .home .homeContainer .homeInfo {
+    margin-top: 0;
+  }
+}
+
+.home .homeContainer .homeInfo .homeInfoContainer {
+  gap: 1rem;
+  display: flex;
+  padding: 2rem;
+  padding-bottom: 3rem;
+  border-radius: 1rem;
+  height: max-content;
+  flex-direction: column;
+  backdrop-filter: blur(50px);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.home .homeContainer .homeInfo .homeInfoContainer::before {
+  content: '< Junior frontend developer />';
+  padding: 1rem 1.5rem;
+  width: max-content;
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  background-color: white;
+  color: #455a64;
+  border-radius: 100px;
+}
+
+.home .homeContainer .homeInfo .homeInfoContainer .homeInfoTitle {
+  font-size: 1.5rem;
+  line-height: 1;
+  position: relative;
+  font-weight: 100;
+}
+
+.home .homeContainer .homeInfo .homeInfoContainer .homeInfoTitle::before {
+  content: '';
+  --widthLine: 2rem;
+  --paddingContainer: 2rem;
+  position: absolute;
+  width: var(--widthLine);
+  height: 1px;
+  bottom: 0.7rem;
+  background-color: white;
+  left: calc( (var(--paddingContainer) + (var(--widthLine) / 2)) * -1);
+}
+
+.home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+  font-size: 5rem;
+  color: var(--secondaryColorLow);
+  line-height: 1;
+  margin-inline: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .home .homeContainer .homeInfo .homeInfoContainer .homeInfoName {
+    font-size: 2.1rem;
+  }
+}
+
+.home .homeContainer .homeInfo .homeInfoContainer .homeInfoJob {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.home .homeContainer .homePicture {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  z-index: -3;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .home .homeContainer .homePicture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(30%, -20%);
+  }
+}
+
+@media (max-width: 425px) {
+  .home .homeContainer .homePicture {
+    width: 110%;
+    left: 0;
+  }
+}
+
+.home .homeContainer .homePicture figure {
+  width: 100%;
+}

@@ -1,0 +1,164 @@
+.about {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem 0;
+  background-color: white;
+}
+
+@media (max-width: 425px) {
+  .about {
+    padding: 4rem 0;
+  }
+}
+
+.about .aboutContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .about .aboutContainer {
+    width: 80%;
+  }
+}
+
+.about .aboutContent {
+  width: max-content;
+  display: flex;
+  gap: 5rem;
+}
+
+@media (max-width: 768px) {
+  .about .aboutContent {
+    width: 100%;
+    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media (max-width: 425px) {
+  .about .aboutContent {
+    display: block;
+  }
+}
+
+@media (max-width: 730px) {
+  .about .aboutContent {
+    display: flex;
+  }
+}
+
+.about .aboutContent .aboutImage {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 30px -12px inset, rgba(0, 0, 0, 0.3) 0px 10px 30px -18px inset;
+  border-radius: 15px;
+  height: max-content;
+  overflow: hidden;
+  padding: 2rem;
+  padding-bottom: 0;
+  width: 250px;
+  min-width: 250px;
+}
+
+@media (max-width: 730px) {
+  .about .aboutContent .aboutImage {
+    display: none;
+  }
+}
+
+.about .aboutContent .aboutImage figure {
+  width: 200px;
+  height: max-content;
+}
+
+.about .aboutContent .aboutInfo {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about .aboutContent .aboutInfo .aboutTitle {
+  font-weight: bold;
+  position: relative;
+}
+
+.about .aboutContent .aboutInfo .aboutTitle::before {
+  content: '';
+  width: 10%;
+  height: 2px;
+  background-color: #ff725e;
+  position: absolute;
+  bottom: -0.5rem;
+}
+
+.about .aboutContent .aboutInfo .aboutSubTitle {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.about .aboutContent .aboutInfo .aboutDescription {
+  font-weight: 300;
+}
+
+.about .aboutContent .aboutInfo .aboutFollowMeContain {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul li a {
+  width: 2rem;
+  height: 2rem;
+  background-color: #455a64;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul li a:hover {
+  opacity: 1;
+}
+
+.about .aboutContent .aboutInfo .aboutFollowMeContain ul li span {
+  font-size: 1rem;
+}
+
+.about .aboutContent .aboutInfo .aboutDownloadCV {
+  width: max-content;
+  height: max-content;
+}
+
+.about .aboutContent .aboutInfo .aboutDownloadCV a {
+  display: block;
+  padding: 1em 2em;
+  border: none;
+  outline: none;
+  background-color: #ff725e;
+  color: white;
+  border-radius: 5rem;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.about .aboutContent .aboutInfo .aboutDownloadCV a:hover {
+  outline: 3px solid white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 30px -12px;
+}

@@ -1,0 +1,129 @@
+.hobbies {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem 0;
+  background-color: white;
+  background-color: transparent;
+  color: white;
+}
+
+@media (max-width: 425px) {
+  .hobbies {
+    padding: 4rem 0;
+  }
+}
+
+.hobbies .hobbiesContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .hobbies .hobbiesContainer {
+    width: 80%;
+    max-width: 80%;
+  }
+}
+
+.hobbies .hobbiesContent {
+  width: max-content;
+}
+
+@media (max-width: 768px) {
+  .hobbies .hobbiesContent {
+    width: 100%;
+  }
+}
+
+.hobbies .hobbiesContent .hobbiesTitle {
+  font-weight: bold;
+  position: relative;
+}
+
+.hobbies .hobbiesContent .hobbiesTitle::before {
+  content: '';
+  width: 5%;
+  height: 2px;
+  background-color: #ff725e;
+  position: absolute;
+  bottom: -0.2rem;
+}
+
+.hobbies .hobbiesContent .hobbiesSubTitle {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.hobbies .hobbiesContent .hobbiesList {
+  width: 100%;
+  padding: 2rem 0rem;
+  color: #1a2d36;
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain {
+  width: 100%;
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 425px) {
+  .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li {
+  width: 200px;
+  height: 100px;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in;
+}
+
+@media (max-width: 768px) {
+  .hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li {
+    width: 100%;
+    height: 8rem;
+  }
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li:hover {
+  filter: grayscale(0%);
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  transition: backdrop-filter 0.2s ease-in;
+}
+
+.hobbies .hobbiesContent .hobbiesList .hobbiesListContain ul li div:hover {
+  backdrop-filter: blur(1px);
+}

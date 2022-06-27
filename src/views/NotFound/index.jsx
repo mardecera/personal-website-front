@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { error404Image } from '../../assets'
+import { notFoundMessage, notFoundButtonGoTo } from '../../consts'
 import styles from './index.module.css'
 
 const NotFound = () => {
@@ -7,10 +8,14 @@ const NotFound = () => {
         <div className={styles.container}>
             <div className={styles.contain}>
                 <img src={error404Image} alt="404" />
-                <p>Lo sentimos, esta pagina no se pudo encontrar.</p>
-                <Link className={styles.goToHome} to="/">
+                <p>{notFoundMessage}</p>
+                <Link
+                    className={styles.goToHome}
+                    to="/"
+                    aria-label={notFoundButtonGoTo}
+                >
                     <span className="icon-arrow-left"></span>
-                    <p>Go to Home</p>
+                    <p>{notFoundButtonGoTo}</p>
                 </Link>
             </div>
         </div>

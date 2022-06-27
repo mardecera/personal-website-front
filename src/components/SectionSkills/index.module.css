@@ -1,0 +1,84 @@
+.skills {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem 0;
+  background-color: white;
+}
+
+@media (max-width: 425px) {
+  .skills {
+    padding: 4rem 0;
+  }
+}
+
+.skills .skillsContainer {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .skills .skillsContainer {
+    width: 80%;
+  }
+}
+
+.skills .skillsContent {
+  width: max-content;
+}
+
+@media (max-width: 768px) {
+  .skills .skillsContent {
+    width: 100%;
+  }
+}
+
+.skills .skillsContent .skillsTitle {
+  font-weight: bold;
+  position: relative;
+}
+
+.skills .skillsContent .skillsTitle::before {
+  content: '';
+  width: 5%;
+  height: 2px;
+  background-color: #ff725e;
+  position: absolute;
+  bottom: -0.2rem;
+}
+
+.skills .skillsContent .skillsSubTitle {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.skills .skillsContent .skillsList {
+  max-width: 1000px;
+  padding: 2rem 0rem;
+  color: #455a64;
+}
+
+.skills .skillsContent .skillsList .skillsListContainer ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .skills .skillsContent .skillsList .skillsListContainer ul {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills .skillsContent .skillsList .skillsListContainer ul {
+    justify-content: flex-start;
+  }
+}

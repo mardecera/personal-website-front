@@ -1,0 +1,23 @@
+.itemTitle {
+  pointer-events: none;
+}
+
+.itemPhotography {
+  background-image: url("../../assets/images/hobbie-photography.webp");
+  background-size: cover;
+}
+
+.itemCinema {
+  background-image: url("../../assets/images/hobbie-cinema.webp");
+  background-size: cover;
+}
+
+.itemDraw {
+  background-image: url("../../assets/images/hobbie-draw.webp");
+  background-size: cover;
+}
+
+.itemProgramming {
+  background-image: url("../../assets/images/hobbie-programming.webp");
+  background-size: cover;
+}
