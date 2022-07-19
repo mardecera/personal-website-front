@@ -4,8 +4,8 @@ import styles from './index.module.css'
 const SkillsItems = () => {
     return skillsList.map((skill, index) => (
         <li key={index}>
-            <div className={styles.hobbiesListItem}>
-                <span className={`icon-${skill.toLowerCase()}`}></span>
+            <div className={styles.skillsListItem}>
+                <div className={`icon-${skill.toLowerCase()}`}></div>
                 <div>{skill}</div>
             </div>
         </li>

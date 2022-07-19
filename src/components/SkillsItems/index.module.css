@@ -1,4 +1,4 @@
-.hobbiesListItem {
+.skillsListItem {
   display: flex;
   box-shadow: inset 5px 5px 10px rgba(153, 153, 153, 0.3);
   border-radius: 0.5rem;
@@ -7,11 +7,20 @@
 }
 
 @media (max-width: 768px) {
-  .hobbiesListItem {
-    padding: 1rem;
+  .skillsListItem {
+    padding: .5em 1em;
+    font-size: 1em;
   }
 }
 
-.hobbiesListItem span::before {
-  font-size: 1.5rem;
+@media (max-width: 550px) {
+  .skillsListItem {
+    font-size: .9em;
+  }
+}
+
+.skillsListItem:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

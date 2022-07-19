@@ -79,6 +79,6 @@
 
 @media (max-width: 768px) {
   .skills .skillsContent .skillsList .skillsListContainer ul {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }

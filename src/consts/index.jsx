@@ -32,8 +32,8 @@ const skillsSubTitle = 'Skills are continuously developed and improved'
 const skillsSubTitleESP = 'Las skills se desarrollan y mejoran continuamente'
 const skillsList = [
     'JavaScript',
-    'git',
-    'Html5',
+    'Git',
+    'Html',
     'Css3',
     'React Js',
     'Figma',
@@ -48,11 +48,11 @@ const projectsList = [
         href: 'https://passwordgenerator.mardecera.com',
     },
     {
-        name: 'Instagram clone',
-        href: 'https://passwordgenerator.mardecera.com',
+        name: 'Weather Viewer',
+        href: 'https://weatherviewer.mardecera.com',
     },
     {
-        name: 'Weather',
+        name: 'Instagram clone',
         href: 'https://passwordgenerator.mardecera.com',
     },
 ]

@@ -8,18 +8,16 @@ import {
     SectionProjects,
 } from '../../components'
 
-const Home = () => {
-    return (
-        <>
-            <Header />
-            <SectionHome />
-            <SectionAboutMe />
-            <SectionHobbies />
-            <SectionSkills />
-            <SectionProjects />
-            <Footer />
-        </>
-    )
-}
+const Home = () => (
+    <>
+        <Header />
+        <SectionHome />
+        <SectionAboutMe />
+        <SectionHobbies />
+        <SectionSkills />
+        <SectionProjects />
+        <Footer />
+    </>
+)
 
 export default Home
